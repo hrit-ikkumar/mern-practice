@@ -1,4 +1,4 @@
-### `npm install'
+### `npm install`
 Installs all the dependencies 
 
 ### `npm start`
