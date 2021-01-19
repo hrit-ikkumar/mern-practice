@@ -1,6 +1,13 @@
-function route(pathname)
+function route(handle, pathname)
 {
-    console.log("Request has been sent to: ", pathname);
+    if(typeof handle[pathname] === 'function')
+    {
+        handle[pathname]();
+    }
+    else
+    {
+        console.log("No handler for "+pathname);
+    }
 }
 
 module.exports.route = route; // route function has been exported here
