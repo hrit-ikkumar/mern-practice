@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 // import { buyCake } from './redux/cake/cakeActions';
 import {buyCake} from '../redux';
 import {connect} from 'react-redux';
 
-function CakeComponent(props) {
+function NewCakeComponent(props) {
+  const [number, setNumber] = useState(1);
     return (
         <div>
             <h2>Number of Cake: {props.numOfCake}</h2>
-            <button onClick={props.buyCake}>Buy Cake</button>
+            <input type='text' value = {number} onChange={e => setNumber(e.target.value)} />
+            <button onClick={() => props.buyCake(number)}>Buy Num of Cake</button>
         </div>
     )
 }
@@ -20,9 +22,9 @@ const mapStateToProps = state => {
   const mapDispatchToProps = dispatch => {
     return {
         // buyCake will dispatch buyCake action
-      buyCake: () => dispatch(buyCake())
+      buyCake: (number) => dispatch(buyCake(number))
     }
   }
   
   
-  export default connect(mapStateToProps, mapDispatchToProps)(CakeComponent);
+  export default connect(mapStateToProps, mapDispatchToProps)(NewCakeComponent);
