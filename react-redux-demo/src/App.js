@@ -1,0 +1,20 @@
+import './App.css';
+import CakeComponent from './component/CakeComponent';
+import {Provider} from 'react-redux';
+import store from './redux/store'; 
+
+
+function App() {
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <CakeComponent /> 
+      </div>
+    </Provider>
+
+  );
+}
+
+
+
+export default App;
